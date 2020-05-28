@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["DotnetCoreContainer/DotnetCoreContainer.csproj", "DotnetCoreContainer/"]
+COPY ["DotnetCoreContainer/DotnetCoreContainer.csproj", "DotnetCoreContainer/DotnetCoreContainer.csproj"]
 RUN dotnet restore "DotnetCoreContainer/DotnetCoreContainer.csproj"
 COPY . .
 WORKDIR "/src/DotnetCoreContainer"
