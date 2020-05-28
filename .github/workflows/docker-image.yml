@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag cliffenator/dotnet-core-container:latest
+      run: docker build . -t cliffenator/asp.net-core-container:latest
     - name: Push the docker image
-      run: docker push cliffenator/dotnet-core-container:latest
+      run: docker push cliffenator/asp.net-core-container:latest
       
