@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["asp.netcore-container/DotnetCoreContainer.csproj", "DotnetCoreContainer/"]
+COPY ["DotnetCoreContainer/DotnetCoreContainer.csproj", "DotnetCoreContainer/"]
 RUN dotnet restore "DotnetCoreContainer/DotnetCoreContainer.csproj"
 COPY . .
 WORKDIR "/src/DotnetCoreContainer"
@@ -16,4 +16,4 @@ RUN dotnet publish "DotnetCoreContainer.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "SampleWeb.dll"]
+ENTRYPOINT ["dotnet", "DotnetCoreContainer.dll"]
